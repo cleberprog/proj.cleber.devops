@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Cleber Santos | Business Intelligence & Data Engineering Portfolio</title>
+    <meta name="description" content="Portfólio profissional de Cleber Santos. Especialista em Qlik Sense Cloud, Qlik NPrinting, Qlik Talend, Engenharia de Dados, SQL, APIs e Governança de Dados.">
+    <meta name="keywords" content="Qlik Sense, Talend, NPrinting, SQL, API, Data Quality, BI, Engenheiro de Dados, Cleber Santos">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="antialiased min-h-screen">
+
+    <!-- Background Decoration Grid -->
+    <div class="bg-grid-overlay"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+
+    <div class="app-container">
+        
+        <!-- SIDEBAR / PROFILE CONTAINER (Left side on Desktop, Top on Mobile) -->
+        <aside class="profile-sidebar" id="profile-card">
+            
+            <!-- Theme Toggle Button -->
+            <div class="theme-toggle-wrapper">
+                <button id="theme-toggle-btn" class="theme-toggle-btn" title="Alternar Modo Claro/Escuro" aria-label="Alternar tema">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+
+            <div class="profile-header">
+                <div class="avatar-container">
+                    <img src="assets/profile.png" alt="Cleber Santos" class="avatar-img">
+                    <div class="avatar-pulse"></div>
+                </div>
+                <h1 class="profile-name">
+                    <span class="text-white">Cleber</span> <span class="text-neon">Santos</span>
+                </h1>
+                <p class="profile-tagline" id="typing-text">BI • DATA ENGINEERING • WEB</p>
+                <p class="profile-description">
+                    Ajudo empresas a transformar dados brutos em decisões estratégicas escaláveis com governança e alta performance.
+                </p>
+                
+                <div class="social-links">
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-btn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-btn">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:cleber@exemplo.com" aria-label="Email" class="social-btn">
+                        <i class="far fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- NAVIGATION MENU (Adapts between vertical list on desktop and horizontal/tab bar on mobile) -->
+            <nav class="navigation-menu">
+                <button class="nav-item active" data-tab="home" id="btn-tab-home">
+                    <i class="fas fa-th-large"></i>
+                    <span>Dashboard / Início</span>
+                </button>
+                <button class="nav-item" data-tab="qlik-sense" id="btn-tab-qlik">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Qlik Sense & NPrinting</span>
+                </button>
+                <button class="nav-item" data-tab="qlik-talend" id="btn-tab-talend">
+                    <i class="fas fa-network-wired"></i>
+                    <span>Qlik Talend & Dados</span>
+                </button>
+                <button class="nav-item" data-tab="consultoria" id="btn-tab-consultoria">
+                    <i class="fas fa-handshake"></i>
+                    <span>Consultoria & Mentoria</span>
+                </button>
+                <button class="nav-item" data-tab="cursos" id="btn-tab-cursos">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Cursos & Treinamentos</span>
+                </button>
+                <button class="nav-item" data-tab="dicas" id="btn-tab-dicas">
+                    <i class="fas fa-lightbulb"></i>
+                    <span>Dicas & Truques</span>
+                </button>
+                <button class="nav-item" data-tab="skills" id="btn-tab-skills">
+                    <i class="fas fa-code"></i>
+                    <span>Habilidades & Tech</span>
+                </button>
+            </nav>
+            
+            <!-- Floating Contact Quick Access -->
+            <div class="quick-contact-panel">
+                <a href="https://wa.me/5511999999999" target="_blank" class="cta-whatsapp" id="btn-whatsapp-sidebar">
+                    <i class="fab fa-whatsapp"></i>
+                    <div class="cta-text">
+                        <span class="cta-title">Fale Comigo</span>
+                        <span class="cta-subtitle">Resposta Rápida no WhatsApp</span>
+                    </div>
+                </a>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA (Tabs display here) -->
+        <main class="content-area">
+            
+            <!-- SECTION 1: HOME/DASHBOARD -->
+            <section id="home" class="tab-content active-content">
+                <div class="section-header">
+                    <div class="section-indicator">
+                        <i class="fas fa-th-large text-neon"></i>
+                        <span>VISÃO GERAL</span>
+                    </div>
+                    <h2 class="section-title">Bem-vindo ao meu Portfólio</h2>
+                </div>
+
+                <!-- Stats Dashboard Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper blue-glow">
+                            <i class="fas fa-chart-line text-blue-400"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">+50</span>
+                            <span class="stat-label">Dashboards Ativos</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper neon-glow">
+                            <i class="fas fa-project-diagram text-neon"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">+30</span>
+                            <span class="stat-label">Pipelines Talend</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper purple-glow">
+                            <i class="fas fa-database text-purple-400"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">+15</span>
+                            <span class="stat-label">Integrações de APIs</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper gold-glow">
+                            <i class="fas fa-users-cog text-yellow-400"></i>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value">+200</span>
+                            <span class="stat-label">Usuários Capacitados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-block mt-6">
+                    <h3 class="info-title"><i class="fas fa-rocket text-neon mr-2"></i> Propósito Profissional</h3>
+                    <p class="info-text">
+                        Atuo como Engenheiro de Dados e Desenvolvedor BI, construindo pontes sólidas entre a necessidade de negócio e dados técnicos estruturados. Minha abordagem une a modelagem clássica com ferramentas modernas de cloud, garantindo que as empresas tenham relatórios automatizados, dashboards interativos em tempo real e pipelines de dados com governança e qualidade asseguradas.
+                    </p>
+                </div>
+
+                <!-- Skill Highlights Cards -->
+                <div class="features-header mt-8 mb-4">
+                    <h3 class="sub-section-title"><i class="fas fa-star text-neon mr-2"></i> Pilares de Atuação</h3>
+                </div>
+                <div class="skills-highlight-grid">
+                    <div class="highlight-card">
+                        <i class="fas fa-database highlight-icon"></i>
+                        <h4>Modelagem SQL & Performance</h4>
+                        <p>Construção de bancos relacionais robustos, consultas otimizadas e arquiteturas adequadas a grandes volumes de dados.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-globe-americas highlight-icon"></i>
+                        <h4>Desenvolvimento Web Integrado</h4>
+                        <p>Desenho de portais de dados e ferramentas customizadas integrando visualizações analíticas em plataformas internas.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-plug highlight-icon"></i>
+                        <h4>Integração de APIs</h4>
+                        <p>Conexão nativa e via REST/SOAP para ingestão de dados em nuvem ou disparo de fluxos operacionais.</p>
+                    </div>
+                    <div class="highlight-card">
+                        <i class="fas fa-shield-alt highlight-icon"></i>
+                        <h4>Governança e Qualidade</h4>
+                        <p>Políticas de acesso controladas, rastreabilidade (data lineage) e higienização para assegurar dados confiáveis.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: QLIK SENSE & NPRINTING -->
+            <section id="qlik-sense" class="tab-content">
+                <div class="section-header">
+                    <div class="section-indicator">
+                        <i class="fas fa-chart-pie text-neon"></i>
+                        <span>SOLUÇÕES EM QLIK SENSE & NPRINTING</span>
+                    </div>
+                    <h2 class="section-title">Análise de Dados Extrema</h2>
+                </div>
+
+                <div class="cards-list">
+                    <!-- Card 1 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-database text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>ETL e Modelagem Associativa</h3>
+                                <p class="card-subtitle">Extração e transformação com alta performance</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Desenvolvimento avançado de scripts Qlik (QVS), criação de camadas de QVD estruturadas (extrator, transformador e aplicação), otimização de modelo de dados associativo para prevenção de loops e chaves sintéticas.</p>
+                            <div class="tag-container">
+                                <span class="tag">QVD Layering</span>
+                                <span class="tag">Incremental Load</span>
+                                <span class="tag">Optimized Load</span>
+                                <span class="tag">Set Analysis</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-desktop text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Desenvolvimento de Dashboards</h3>
+                                <p class="card-subtitle">Visuais intuitivos e orientados ao negócio</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Criação de visualizações dinâmicas no Qlik Sense Cloud e On-Premise, aplicando conceitos de UX/UI voltados para Business Intelligence. Criação de indicadores estratégicos (KPIs), gráficos interativos e expressões analíticas complexas via Set Analysis.</p>
+                            <div class="tag-container">
+                                <span class="tag">Qlik Sense Cloud</span>
+                                <span class="tag">UX/UI para BI</span>
+                                <span class="tag">Set Analysis Avançado</span>
+                                <span class="tag">Master Items</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 (NEW - NPRINTING) -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-file-invoice text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Qlik NPrinting & Relatórios Corporativos</h3>
+                                <p class="card-subtitle">Automação e distribuição inteligente de relatórios</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Desenvolvimento de modelos de relatórios PixelPerfect, Excel, Word, PowerPoint e HTML nativos do Qlik NPrinting. Automação de envio agendado (Triggers) e por regras (Conditions), integrando filtros dinâmicos personalizados para cada destinatário (Recipients).</p>
+                            <div class="tag-container">
+                                <span class="tag">PixelPerfect</span>
+                                <span class="tag">Automated Triggers</span>
+                                <span class="tag">Multi-format Reporting</span>
+                                <span class="tag">Dynamic Filters</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-server text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Administração de Ambiente (QMC)</h3>
+                                <p class="card-subtitle">Gestão de acessos, tasks e governança de BI</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Configuração do console Qlik Management Console (QMC). Administração de licenças (Professional, Analyzer, Capacity), agendamento de tarefas de recarga com dependências e aplicação de segurança a nível de linha (Section Access).</p>
+                            <div class="tag-container">
+                                <span class="tag">Section Access</span>
+                                <span class="tag">QMC Configuration</span>
+                                <span class="tag">Security Rules</span>
+                                <span class="tag">Task Chaining</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-cta-block mt-8">
+                    <div class="cta-inner">
+                        <i class="fas fa-comments cta-icon-large text-neon"></i>
+                        <div class="cta-info-text">
+                            <h3>Deseja otimizar seu ambiente Qlik?</h3>
+                            <p>Vamos marcar um diagnóstico gratuito da performance das suas aplicações e painéis.</p>
+                        </div>
+                        <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20um%20diagnóstico%20no%20meu%20ambiente%20Qlik." target="_blank" class="btn-primary" id="btn-cta-qlik">
+                            Conversar via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: QLIK TALEND & DATA ENGINEERING -->
+            <section id="qlik-talend" class="tab-content">
+                <div class="section-header">
+                    <div class="section-indicator">
+                        <i class="fas fa-network-wired text-neon"></i>
+                        <span>ENGENHARIA DE DADOS COM TALEND</span>
+                    </div>
+                    <h2 class="section-title">Integração e Governança Modernas</h2>
+                </div>
+
+                <div class="cards-list">
+                    <!-- Card 1 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-shield-alt text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Governança e Segurança</h3>
+                                <p class="card-subtitle">Movimentação de dados com compliance e total controle</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Criação de pipelines transparentes e auditáveis usando Talend Management Console (TMC) e Talend Studio. Rastreamento da linhagem do dado (Data Lineage) desde a origem até o destino, garantindo conformidade com a LGPD e políticas corporativas.</p>
+                            <div class="tag-container">
+                                <span class="tag">Talend Cloud (TMC)</span>
+                                <span class="tag">Data Lineage</span>
+                                <span class="tag">LGPD Compliance</span>
+                                <span class="tag">Audit Logs</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-sync text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Integração de Sistemas & APIs</h3>
+                                <p class="card-subtitle">Conectando bancos de dados, web e microsserviços</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Desenho de rotas de integração e Web Services. Integração de dados em tempo real e em lote (Batch) conectando APIs RESTful externas, arquivos em Cloud Storage, bancos de dados legados (Oracle, SQL Server) e modernos Cloud Warehouses (Snowflake, BigQuery).</p>
+                            <div class="tag-container">
+                                <span class="tag">Talend Studio</span>
+                                <span class="tag">REST/SOAP Client</span>
+                                <span class="tag">ETL/ELT Pipelines</span>
+                                <span class="tag">JSON/XML Parsing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-check-double text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Qualidade de Dados (Data Quality)</h3>
+                                <p class="card-subtitle">Garantia de consistência, limpeza e padronização</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Desenvolvimento de rotinas automatizadas para validação de dados em trânsito com Talend Studio (componentes como tSchemaComplianceCheck, tFilterRow e tMap). Detecção de anomalias, tratamento de nulos, desduplicação e enriquecimento de dados operacionais antes da carga analítica.</p>
+                            <div class="tag-container">
+                                <span class="tag">tSchemaCompliance</span>
+                                <span class="tag">Deduplicação</span>
+                                <span class="tag">Data Masking</span>
+                                <span class="tag">Regex Validation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-cta-block mt-8">
+                    <div class="cta-inner">
+                        <i class="fas fa-rocket cta-icon-large text-neon"></i>
+                        <div class="cta-info-text">
+                            <h3>Inicie sua jornada de dados moderna</h3>
+                            <p>Vamos estruturar a ingestão e governança dos seus dados operacionais.</p>
+                        </div>
+                        <a href="https://wa.me/5511999999999?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20soluções%20com%20Qlik%20Talend." target="_blank" class="btn-primary" id="btn-cta-talend">
+                            Solicitar Diagnóstico Talend
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: CONSULTORIA E MENTORIA -->
+            <section id="consultoria" class="tab-content">
+                <div class="section-header">
+                    <div class="section-indicator">
+                        <i class="fas fa-graduation-cap text-neon"></i>
+                        <span>CONSULTORIA E TREINAMENTO</span>
+                    </div>
+                    <h2 class="section-title">Aceleração de Equipes e Arquiteturas</h2>
+                </div>
+
+                <!-- Split Grid: 2 columns for services -->
+                <div class="grid-2col">
+                    <div class="service-card card-hover">
+                        <div class="service-icon-circle">
+                            <i class="fas fa-chalkboard-teacher text-neon"></i>
+                        </div>
+                        <h3>Treinamento In-Company</h3>
+                        <p class="service-desc">Capacite seu time em desenvolvimento de painéis Qlik Sense de alta performance, boas práticas de ETL e lógica de modelagem de dados associativa.</p>
+                        <ul class="service-bullets">
+                            <li><i class="fas fa-check text-neon mr-2"></i> Treinamentos personalizados</li>
+                            <li><i class="fas fa-check text-neon mr-2"></i> Casos reais da sua empresa</li>
+                            <li><i class="fas fa-check text-neon mr-2"></i> Workshops práticos hands-on</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card card-hover">
+                        <div class="service-icon-circle">
+                            <i class="fas fa-user-astronaut text-neon"></i>
+                        </div>
+                        <h3>Mentoria 1 a 1</h3>
+                        <p class="service-desc">Acompanhamento individual direcionado para desenvolvedores juniores ou profissionais que desejam acelerar sua carreira em Engenharia de Dados e BI.</p>
+                        <ul class="service-bullets">
+                            <li><i class="fas fa-check text-neon mr-2"></i> Resolução de dúvidas de projetos</li>
+                            <li><i class="fas fa-check text-neon mr-2"></i> Planejamento de carreira em T.I.</li>
+                            <li><i class="fas fa-check text-neon mr-2"></i> Revisão de arquitetura de código</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Full Width Service Block -->
+                <div class="detail-card mt-6">
+                    <div class="card-left-accent"></div>
+                    <div class="detail-card-header">
+                        <div class="card-icon bg-blue-glow"><i class="fas fa-stethoscope text-neon"></i></div>
+                        <div class="card-title-area">
+                            <h3>Diagnóstico de Ambiente BI</h3>
+                            <p class="card-subtitle">Auditoria profunda de performance e melhores práticas de infraestrutura</p>
+                        </div>
+                    </div>
+                    <div class="detail-card-body">
+                        <p>Análise de gargalos em recargas de dados, otimização de scripts lentos, revisão de regras de segurança QMC e mapeamento de servidores para otimização de custos de licenciamento e cloud. Garanta que seus usuários acessem relatórios sem delays.</p>
+                    </div>
+                </div>
+
+                <!-- Scheduling Section -->
+                <div class="scheduling-container mt-8">
+                    <div class="scheduling-header">
+                        <i class="far fa-calendar-alt text-neon text-2xl"></i>
+                        <h3>Agende uma Sessão Estratégica</h3>
+                        <p>Escolha o melhor dia e horário abaixo para conversarmos sobre seus desafios técnicos.</p>
+                    </div>
+                    
+                    <!-- Simulating a premium meeting scheduler inside the page -->
+                    <div class="scheduler-box">
+                        <form id="schedule-form" class="scheduler-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="sched-name">Nome Completo</label>
+                                    <input type="text" id="sched-name" placeholder="Ex: João Silva" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sched-email">E-mail Corporativo</label>
+                                    <input type="email" id="sched-email" placeholder="Ex: joao@empresa.com" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="sched-service">Serviço de Interesse</label>
+                                    <select id="sched-service" required>
+                                        <option value="" disabled selected>Selecione um serviço...</option>
+                                        <option value="diagnostico">Diagnóstico de Ambiente BI</option>
+                                        <option value="mentoria">Mentoria 1 a 1</option>
+                                        <option value="treinamento">Treinamento In-Company</option>
+                                        <option value="talend">Integração com Talend</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sched-date">Data Desejada</label>
+                                    <input type="date" id="sched-date" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group w-full">
+                                    <label for="sched-msg">Descreva brevemente o seu cenário ou problema:</label>
+                                    <textarea id="sched-msg" rows="3" placeholder="Ex: Temos relatórios no Qlik Sense demorando mais de 2 horas para atualizar..." required></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn-submit-sched" id="btn-submit-meeting">
+                                <i class="far fa-calendar-check mr-2"></i> Confirmar Agendamento Prévia
+                            </button>
+                        </form>
+                        <div id="scheduler-success" class="scheduler-success-msg hidden">
+                            <i class="fas fa-check-circle text-neon text-4xl mb-2"></i>
+                            <h4>Solicitação de Agendamento Enviada!</h4>
+                            <p>Cleber Santos entrará em contato em menos de 24 horas no e-mail informado para confirmar o link da sala virtual.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: CURSOS E TREINAMENTOS -->
+            <section id="cursos" class="tab-content">
+                <div class="section-header">
+                    <div class="section-indicator">
+                        <i class="fas fa-graduation-cap text-neon"></i>
+                        <span>CURSOS E TREINAMENTOS</span>
+                    </div>
+                    <h2 class="section-title">Capacitação & Aprendizado Contínuo</h2>
+                </div>
+
+                <div class="cards-list">
+                    <!-- Card 1: Cursos Ministrados -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-chalkboard-teacher text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Treinamentos e Workshops Ministrados</h3>
+                                <p class="card-subtitle">Capacitações corporativas personalizadas e mentorias técnicas</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Desenho e facilitação de cursos práticos (hands-on) para empresas, capacitando times de negócio e T.I. a extrair o máximo valor dos dados com foco em governança de ponta a ponta.</p>
+                            
+                            <div class="custom-bullet-list">
+                                <div class="bullet-item">
+                                    <div class="bullet-icon-wrapper">
+                                        <i class="fas fa-book-reader text-neon"></i>
+                                    </div>
+                                    <div class="bullet-content">
+                                        <strong>Qlik Sense Developer Masterclass:</strong> 
+                                        ETL avançado, escrita de scripts Qlik, modelagem de dados associativa (QVD layering) e otimização de performance.
+                                    </div>
+                                </div>
+                                <div class="bullet-item">
+                                    <div class="bullet-icon-wrapper">
+                                        <i class="fas fa-book-reader text-neon"></i>
+                                    </div>
+                                    <div class="bullet-content">
+                                        <strong>Qlik Talend Data Integration:</strong> 
+                                        Design de Jobs de ETL, validação de schemas, conexões com APIs e orquestração automatizada no Cloud.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Certificações Concluídas -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-award text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Certificações e Especializações</h3>
+                                <p class="card-subtitle">Desenvolvimento contínuo em tecnologia e engenharia analítica</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Histórico de especializações formais e certificações técnicas que validam a entrega de soluções de alta qualidade.</p>
+                            
+                            <div class="certification-grid">
+                                <div class="cert-item">
+                                    <div class="cert-icon-box">
+                                        <i class="fas fa-certificate text-neon"></i>
+                                    </div>
+                                    <div class="cert-info">
+                                        <strong>Qlik Sense Data Architect Certification</strong>
+                                        <span>Qlik Official Certification</span>
+                                    </div>
+                                </div>
+                                <div class="cert-item">
+                                    <div class="cert-icon-box">
+                                        <i class="fas fa-certificate text-neon"></i>
+                                    </div>
+                                    <div class="cert-info">
+                                        <strong>Talend Certified Developer - Data Integration</strong>
+                                        <span>Talend Academy Specialist</span>
+                                    </div>
+                                </div>
+                                <div class="cert-item">
+                                    <div class="cert-icon-box">
+                                        <i class="fas fa-certificate text-neon"></i>
+                                    </div>
+                                    <div class="cert-info">
+                                        <strong>Advanced SQL Database & Query Optimization</strong>
+                                        <span>Curso Especializado</span>
+                                    </div>
+                                </div>
+                                <div class="cert-item">
+                                    <div class="cert-icon-box">
+                                        <i class="fas fa-certificate text-neon"></i>
+                                    </div>
+                                    <div class="cert-info">
+                                        <strong>Desenvolvimento de APIs Web e Integrações</strong>
+                                        <span>Curso Especializado</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 6: DICAS & TRUQUES -->
+            <section id="dicas" class="tab-content">
+                <div class="section-header">
+                    <div class="section-indicator">
+                        <i class="fas fa-lightbulb text-neon"></i>
+                        <span>DICAS & TRUQUES</span>
+                    </div>
+                    <h2 class="section-title">Dicas, Truques & Estratégias</h2>
+                </div>
+
+                <p class="section-intro">
+                    Compartilhamento de aprendizados práticos e padrões arquiteturais consolidados em projetos de BI e Engenharia de Dados.
+                </p>
+
+                <div class="cards-list">
+                    <!-- Tip 1 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-history text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>Carga Incremental Otimizada no Qlik Sense</h3>
+                                <p class="card-subtitle">Performance extrema reduzindo janelas de recarga</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Evite ler tabelas transacionais inteiras a cada atualização. A técnica de Carga Incremental mescla novos registros extraídos do banco de dados operacional com a base histórica persistida em arquivos QVD.</p>
+                            
+                            <!-- Special Code Block requested by user -->
+                            <div class="code-preview mb-4">
+                                <div class="code-preview-header">
+                                    <span>qlik_incremental_load.qvs</span>
+                                    <i class="far fa-copy cursor-pointer hover:text-neon" title="Copiar código"></i>
+                                </div>
+                                <pre><code><span class="code-keyword">LET</span> Last_Update = <span class="code-func">Peek</span>(<span class="code-string">'LastReloadDate'</span>, 0, <span class="code-string">'ReloadLog'</span>);
+
+Incremental_Data:
+<span class="code-keyword">SQL SELECT</span> * <span class="code-keyword">FROM</span> OrderTable 
+<span class="code-keyword">WHERE</span> UpdateDate >= '$(Last_Update)';
+
+<span class="code-keyword">CONCATENATE</span>(Incremental_Data)
+<span class="code-keyword">LOAD</span> * <span class="code-keyword">FROM</span> [lib://QVD_Folder/Orders.qvd] (qvd)
+<span class="code-keyword">WHERE NOT EXISTS</span>(OrderId);
+
+<span class="code-keyword">STORE</span> Incremental_Data <span class="code-keyword">INTO</span> [lib://QVD_Folder/Orders.qvd] (qvd);</code></pre>
+                            </div>
+
+                            <!-- Interactive Comments Section -->
+                            <div class="comments-section" data-tip-id="qlik-inc-load">
+                                <button class="btn-toggle-comments">
+                                    <i class="far fa-comments"></i> Comentários (<span class="comment-count">0</span>) <i class="fas fa-chevron-down toggle-arrow"></i>
+                                </button>
+                                <div class="comments-container hidden">
+                                    <div class="comments-list">
+                                        <!-- Rendered dynamically -->
+                                    </div>
+                                    <form class="comment-form">
+                                        <h5>Adicionar Comentário</h5>
+                                        <div class="comment-form-row">
+                                            <input type="text" placeholder="Seu nome" class="comment-input-name" required>
+                                            <button type="submit" class="btn-submit-comment">Comentar</button>
+                                        </div>
+                                        <textarea placeholder="Escreva sua opinião ou dúvida..." class="comment-input-text" rows="2" required></textarea>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tip 2 -->
+                    <div class="detail-card">
+                        <div class="card-left-accent"></div>
+                        <div class="detail-card-header">
+                            <div class="card-icon bg-blue-glow"><i class="fas fa-filter text-neon"></i></div>
+                            <div class="card-title-area">
+                                <h3>SQL Window Functions para Deduplicação</h3>
+                                <p class="card-subtitle">Garanta a integridade limpando dados em staging</p>
+                            </div>
+                        </div>
+                        <div class="detail-card-body">
+                            <p>Uma estratégia limpa para extrair apenas a versão mais recente de registros repetidos (como históricos de alteração) usando <code>ROW_NUMBER()</code> ordenado de forma decrescente pela data de modificação.</p>
+                            
+                            <!-- Special Code Block requested by user -->
+                            <div class="code-preview mb-4">
+                                <div class="code-preview-header">
+                                    <span>sql_deduplicate.sql</span>
+                                    <i class="far fa-copy cursor-pointer hover:text-neon" title="Copiar código"></i>
+                                </div>
+                                <pre><code><span class="code-keyword">WITH</span> RankedRecords <span class="code-keyword">AS</span> (
+    <span class="code-keyword">SELECT</span> *,
+           <span class="code-func">ROW_NUMBER</span>() <span class="code-keyword">OVER</span> (
+               <span class="code-keyword">PARTITION BY</span> user_id 
+               <span class="code-keyword">ORDER BY</span> last_modified_date <span class="code-keyword">DESC</span>
+           ) <span class="code-keyword">AS</span> row_num
+    <span class="code-keyword">FROM</span> staging_users
+)
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> RankedRecords 
+<span class="code-keyword">WHERE</span> row_num = 1;</code></pre>
+                            </div>
+
+                            <!-- Interactive Comments Section -->
+                            <div class="comments-section" data-tip-id="sql-dedup">
+                                <button class="btn-toggle-comments">
+                                    <i class="far fa-comments"></i> Comentários (<span class="comment-count">0</span>) <i class="fas fa-chevron-down toggle-arrow"></i>
+                                </button>
+                                <div class="comments-container hidden">
+                                    <div class="comments-list">
+                                        <!-- Rendered dynamically -->
+                                    </div>
+                                    <form class="comment-form">
+                                        <h5>Adicionar Comentário</h5>
+                                        <div class="comment-form-row">
+                                            <input type="text" placeholder="Seu nome" class="comment-input-name" required>
+                                            <button type="submit" class="btn-submit-comment">Comentar</button>
+                                        </div>
+                                        <textarea placeholder="Escreva sua opinião ou dúvida..." class="comment-input-text" rows="2" required></textarea>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 7: SKILLS & TECH DETAILS -->
+            <section id="skills" class="tab-content">
+                <div class="section-header">
+                    <div class="section-indicator">
+                        <i class="fas fa-code text-neon"></i>
+                        <span>HABILIDADES TÉCNICAS</span>
+                    </div>
+                    <h2 class="section-title">Stack e Proficiência de Engenharia</h2>
+                </div>
+
+                <p class="section-intro">
+                    Demonstração prática e conceitual de conhecimentos consolidados em linguagens de consulta, integrações de APIs web, governança corporativa e qualidade de dados.
+                </p>
+
+                <!-- Skill Grid -->
+                <div class="detailed-skills-grid">
+                    
+                    <!-- Skill 1: SQL -->
+                    <div class="skill-detail-box">
+                        <div class="skill-title-header">
+                            <i class="fas fa-database text-neon text-xl"></i>
+                            <h3>SQL & Modelagem</h3>
+                        </div>
+                        <p>Domínio avançado de bancos de dados relacionais e analíticos. Experiência na escrita de queries complexas, Views, Stored Procedures e na criação de tabelas em ambientes relacionais (PostgreSQL, SQL Server, Oracle) e DWs (Snowflake).</p>
+                        <div class="skill-bullets-custom">
+                            <span><i class="fas fa-circle-notch text-neon"></i> Modelagem Dimensional (Star/Snowflake)</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Queries Analíticas & Window Functions</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Otimização de Índices e Performance</span>
+                        </div>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <span>analytics_query.sql</span>
+                                <i class="far fa-copy cursor-pointer hover:text-neon"></i>
+                            </div>
+                            <pre><code><span class="code-keyword">SELECT</span> 
+    d.customer_id,
+    d.region,
+    <span class="code-func">SUM</span>(f.sale_amount) <span class="code-keyword">AS</span> total_sales,
+    <span class="code-func">RANK</span>() <span class="code-keyword">OVER</span> (<span class="code-keyword">PARTITION BY</span> d.region <span class="code-keyword">ORDER BY</span> <span class="code-func">SUM</span>(f.sale_amount) <span class="code-keyword">DESC</span>) <span class="code-keyword">AS</span> customer_rank
+<span class="code-keyword">FROM</span> fact_sales f
+<span class="code-keyword">JOIN</span> dim_customers d <span class="code-keyword">ON</span> f.customer_key = d.customer_key
+<span class="code-keyword">GROUP BY</span> d.customer_id, d.region;</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: Web Dev -->
+                    <div class="skill-detail-box">
+                        <div class="skill-title-header">
+                            <i class="fas fa-laptop-code text-neon text-xl"></i>
+                            <h3>Desenvolvimento Web</h3>
+                        </div>
+                        <p>Criação de soluções Web integradas para o consumo de BI. Construção de portais corporativos sob demanda, mashups utilizando APIs do Qlik Sense (Capability API, Enigma.js) e interfaces responsivas modernas em HTML5/CSS3/JavaScript.</p>
+                        <div class="skill-bullets-custom">
+                            <span><i class="fas fa-circle-notch text-neon"></i> Criação de Dashboards Web Responsivos</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Consumo de Engine Qlik via Enigma.js</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Customização Visual (CSS Moderno e Flexbox)</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3: API Integration -->
+                    <div class="skill-detail-box">
+                        <div class="skill-title-header">
+                            <i class="fas fa-plug text-neon text-xl"></i>
+                            <h3>Utilização de APIs</h3>
+                        </div>
+                        <p>Integração de dados externos aos sistemas de BI e automação de recargas. Experiência no consumo de endpoints REST/SOAP para ingestão de dados de plataformas SaaS, CRMs (Salesforce) e portais públicos, com tratamento adequado de tokens de autenticação (OAuth2/Basic).</p>
+                        <div class="skill-bullets-custom">
+                            <span><i class="fas fa-circle-notch text-neon"></i> Consumo estruturado de APIs RESTful</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Autenticação via OAuth2 e Api-Keys</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Webhooks para gatilhos em tempo real</span>
+                        </div>
+                        <div class="code-preview">
+                            <div class="code-preview-header">
+                                <span>fetch_api_data.js</span>
+                                <i class="far fa-copy cursor-pointer hover:text-neon"></i>
+                            </div>
+                            <pre><code><span class="code-keyword">const</span> response = <span class="code-keyword">await</span> fetch(<span class="code-string">'https://api.empresa.com/v1/metrics'</span>, {
+    method: <span class="code-string">'GET'</span>,
+    headers: {
+        <span class="code-string">'Authorization'</span>: <span class="code-string">`Bearer ${accessToken}`</span>,
+        <span class="code-string">'Content-Type'</span>: <span class="code-string">'application/json'</span>
+    }
+});
+<span class="code-keyword">const</span> data = <span class="code-keyword">await</span> response.json();
+console.log(<span class="code-string">'Métricas carregadas:'</span>, data.items.length);</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: Governance & Quality -->
+                    <div class="skill-detail-box">
+                        <div class="skill-title-header">
+                            <i class="fas fa-shield-alt text-neon text-xl"></i>
+                            <h3>Qualidade & Governança</h3>
+                        </div>
+                        <p>Desenho de processos seguros que mantêm a integridade corporativa da informação. Aplicação de auditorias em pipelines de dados para assegurar que regras de compliance (LGPD) e controle de acessos baseados em regras (RBAC) sejam rigorosamente atendidos.</p>
+                        <div class="skill-bullets-custom">
+                            <span><i class="fas fa-circle-notch text-neon"></i> Linhagem de dados completa (Data Lineage)</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Regras de Qualidade (Data Quality Rules)</span>
+                            <span><i class="fas fa-circle-notch text-neon"></i> Controle Row-Level Security (Section Access)</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Sticky Footer -->
+    <footer class="app-footer">
+        <p>&copy; 2026 Cleber Santos. Desenvolvido com <i class="fas fa-heart text-neon"></i> para engenharia analítica.</p>
+    </footer>
+
+    <!-- JavaScript Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
