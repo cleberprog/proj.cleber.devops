@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (themeToggleBtn && themeIcon) {
         // Check saved preference
         const savedTheme = localStorage.getItem('portfolio-theme');
-        if (savedTheme === 'light') {
-            document.body.classList.add('light-theme');
-            themeIcon.className = 'fas fa-sun';
-        } else {
+        if (savedTheme === 'dark') {
             document.body.classList.remove('light-theme');
             themeIcon.className = 'fas fa-moon';
+        } else {
+            document.body.classList.add('light-theme');
+            themeIcon.className = 'fas fa-sun';
         }
 
         themeToggleBtn.addEventListener('click', () => {
