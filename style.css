@@ -1665,3 +1665,58 @@ body.light-theme .btn-submit-comment {
 }
 
 
+
+
+/* Responsive Design / Mobile Version */
+@media screen and (max-width: 991px) {
+    .app-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+    
+    .profile-sidebar {
+        position: static;
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .navigation-menu {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+
+    .nav-item {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        white-space: nowrap;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .grid-2col {
+        grid-template-columns: 1fr;
+    }
+    .detail-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .card-icon {
+        margin-bottom: 0.5rem;
+    }
+}
