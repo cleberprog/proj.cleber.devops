@@ -440,32 +440,44 @@ body {
 
 @media screen and (max-width: 767px) {
     .stats-grid {
-        display: flex !important;
-        flex-direction: column !important;
+        display: block !important;
         gap: 1rem !important;
         margin-bottom: 1.5rem !important;
     }
 
     .stat-card {
+        display: flex !important;
         width: 100% !important;
+        margin-bottom: 1rem !important;
         padding: 1rem !important;
         flex-direction: row !important;
         align-items: center !important;
         gap: 0.75rem !important;
+        background: var(--bg-card) !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: var(--radius-md) !important;
     }
 
     .stat-icon-wrapper {
         width: 50px !important;
         height: 50px !important;
         font-size: 1.3rem !important;
+        flex-shrink: 0 !important;
+    }
+
+    .stat-info {
+        display: flex !important;
+        flex-direction: column !important;
     }
 
     .stat-value {
         font-size: 1.4rem !important;
+        font-weight: 800 !important;
     }
 
     .stat-label {
         font-size: 0.65rem !important;
+        color: var(--text-secondary) !important;
     }
 }
 
