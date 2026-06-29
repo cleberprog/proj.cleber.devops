@@ -41,6 +41,22 @@ if /i not "%continue%"=="S" (
     exit /b 0
 )
 
+REM Verificar se há mudanças
+echo.
+echo 🔍 Verificando mudanças...
+git status --porcelain > nul
+if errorlevel 1 goto :push_only
+
+REM Contar mudanças
+for /f %%A in ('git diff --cached --name-only ^| find /c /v ""') do set staged=%%A
+for /f %%A in ('git diff --name-only ^| find /c /v ""') do set unstaged=%%A
+
+if "%staged%"=="0" if "%unstaged%"=="0" (
+    echo ℹ️  Nenhuma mudança detectada
+    echo.
+    goto :push_only
+)
+
 REM Fazer add de todos os arquivos
 echo.
 echo ⚙️  Fazendo staging dos arquivos...
@@ -53,7 +69,7 @@ echo 📝 Criando commit...
 set /p message="Escreva a mensagem do commit (ou pressione Enter para usar padrão): "
 
 if "%message%"=="" (
-    set message=refactor: remove card Qlik NPrinting dos Pilares de Atuação
+    set message=chore: atualização de conteúdo e scripts
 )
 
 git commit -m "%message%"
@@ -67,6 +83,14 @@ if errorlevel 1 (
     exit /b 1
 )
 
+REM Remover arquivo de workflow do commit (requer permissão especial do token)
+echo.
+echo 🔧 Removendo arquivo de workflow (permissão especial necessária)...
+git reset --soft HEAD~1
+git reset HEAD .github/workflows/ci.yml 2>nul
+git commit --amend -m "%message%" 2>nul
+
+:push_only
 REM Fazer push
 echo.
 echo 🚀 Enviando para GitHub (push)...
@@ -96,9 +120,9 @@ echo ║         Alterações enviadas para GitHub com sucesso!          ║
 echo ╚════════════════════════════════════════════════════════════════╝
 echo.
 
-REM Exibir último commit
-echo 📊 Último commit:
-git log --oneline -1
+REM Exibir últimos commits
+echo 📊 Últimos commits:
+git log --oneline -3
 echo.
 
 pause
