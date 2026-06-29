@@ -670,6 +670,66 @@ body {
     background: rgba(74, 222, 128, 0.05);
 }
 
+/* Hero CTA Row */
+.hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem 1.4rem;
+    background: linear-gradient(135deg, rgba(74, 222, 128, 0.12) 0%, rgba(96, 165, 250, 0.1) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+.hero-intro {
+    flex: 1;
+    min-width: 240px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.1rem;
+    border-radius: var(--radius-md);
+    background: var(--neon-green);
+    color: var(--bg-main);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 15px var(--neon-green-glow);
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+.hero-cta-btn.secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+.hero-cta-btn.secondary:hover {
+    border-color: var(--neon-green);
+    color: var(--neon-green);
+}
+
 /* CTA Block inside Tabs */
 .action-cta-block {
     background: linear-gradient(135deg, rgba(18, 27, 42, 0.9) 0%, rgba(10, 16, 26, 0.95) 100%);
