@@ -440,9 +440,14 @@ body {
 
 @media screen and (max-width: 767px) {
     .stats-grid {
-        grid-template-columns: 1fr !important;
+        display: flex !important;
+        flex-direction: column !important;
         gap: 1rem !important;
         margin-bottom: 1.5rem !important;
+    }
+
+    .stat-card {
+        width: 100% !important;
     }
 }
 
