@@ -10,7 +10,10 @@
       "Bash(git add CI_CD_SETUP.md *)",
       "Bash(powershell *)",
       "Bash(echo. *)",
-      "Bash(git add index.html *)"
+      "Bash(git add index.html *)",
+      "Bash(git add style.css *)",
+      "Bash(git add style.css *)",
+      "Bash(git add style.css *)"
     ]
   }
 }
