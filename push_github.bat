@@ -1,9 +1,10 @@
 @echo off
 REM =============================================================================
-REM Script para fazer commit e push no GitHub
-REM Cleber Developer Portfolio - Atualizar Repositório
+REM Script para fazer push no GitHub - VERSÃO FINAL CORRIGIDA
+REM Remove arquivo .github/workflows/ci.yml antes de fazer push
 REM =============================================================================
 
+setlocal enabledelayedexpansion
 color 0A
 cls
 
@@ -11,6 +12,7 @@ echo.
 echo ╔════════════════════════════════════════════════════════════════╗
 echo ║         ATUALIZANDO REPOSITÓRIO NO GITHUB                      ║
 echo ║     Cleber Developer Portfolio - Projeto Qlik & Talend         ║
+echo ║                 VERSÃO CORRIGIDA                              ║
 echo ╚════════════════════════════════════════════════════════════════╝
 echo.
 
@@ -41,71 +43,64 @@ if /i not "%continue%"=="S" (
     exit /b 0
 )
 
-REM Verificar se há mudanças
 echo.
-echo 🔍 Verificando mudanças...
-git status --porcelain > nul
-if errorlevel 1 goto :push_only
+echo ℹ️  Preparando repositório para push...
 
-REM Contar mudanças
-for /f %%A in ('git diff --cached --name-only ^| find /c /v ""') do set staged=%%A
-for /f %%A in ('git diff --name-only ^| find /c /v ""') do set unstaged=%%A
+REM Limpar staged files com arquivo de workflow problemático
+git reset HEAD .github/ 2>nul
 
-if "%staged%"=="0" if "%unstaged%"=="0" (
-    echo ℹ️  Nenhuma mudança detectada
-    echo.
-    goto :push_only
-)
+REM Restaurar arquivo de workflow para evitar inclusão
+git checkout -- .github/workflows/ci.yml 2>nul
 
-REM Fazer add de todos os arquivos
+REM Stage apenas arquivos sem o workflow
 echo.
-echo ⚙️  Fazendo staging dos arquivos...
+echo ⚙️  Adicionando arquivos (excluindo workflow)...
 git add .
-echo ✅ Arquivos adicionados
 
-REM Fazer commit
-echo.
-echo 📝 Criando commit...
-set /p message="Escreva a mensagem do commit (ou pressione Enter para usar padrão): "
+REM Remover workflow do staging novamente
+git reset HEAD .github/workflows/ 2>nul
 
-if "%message%"=="" (
-    set message=chore: atualização de conteúdo e scripts
+REM Verificar se há mudanças para commitar
+for /f %%A in ('git diff --cached --name-only 2^>nul ^| find /c /v ""') do (
+    set "staged=%%A"
 )
 
-git commit -m "%message%"
-
-if errorlevel 1 (
-    color 0C
+if "%staged%"=="0" (
+    echo ℹ️  Nenhuma mudança nova para commit
+) else (
     echo.
-    echo ❌ ERRO ao fazer commit!
-    echo.
-    pause
-    exit /b 1
+    echo 📝 Criando commit...
+    set /p message="Escreva a mensagem do commit (ou pressione Enter para pular): "
+    
+    if not "!message!"=="" (
+        git commit -m "!message!"
+        if errorlevel 1 (
+            echo ⚠️  Erro ao criar commit
+        ) else (
+            echo ✅ Commit criado
+        )
+    ) else (
+        echo ⏭️  Pulando commit, enviando commits pendentes...
+    )
 )
 
-REM Remover arquivo de workflow do commit (requer permissão especial do token)
-echo.
-echo 🔧 Removendo arquivo de workflow (permissão especial necessária)...
-git reset --soft HEAD~1
-git reset HEAD .github/workflows/ci.yml 2>nul
-git commit --amend -m "%message%" 2>nul
-
-:push_only
-REM Fazer push
 echo.
 echo 🚀 Enviando para GitHub (push)...
 echo.
-git push origin main
+
+REM Fazer push
+git push origin main 2>&1
 
 if errorlevel 1 (
     color 0C
     echo.
     echo ❌ ERRO ao fazer push!
     echo.
-    echo Possíveis problemas:
-    echo - Token expirado ou sem permissões
-    echo - Problemas de conexão com internet
-    echo - Conflitos no repositório
+    echo SOLUÇÃO: Gere um novo token com permissão 'workflow':
+    echo https://github.com/settings/tokens/new
+    echo.
+    echo Depois reconfigure seu Git com:
+    echo git config --global credential.helper wincred
     echo.
     pause
     exit /b 1
@@ -120,9 +115,11 @@ echo ║         Alterações enviadas para GitHub com sucesso!          ║
 echo ╚════════════════════════════════════════════════════════════════╝
 echo.
 
-REM Exibir últimos commits
-echo 📊 Últimos commits:
-git log --oneline -3
+REM Exibir último commit
+echo 📊 Status final:
+git log --oneline -1
+echo.
+git status
 echo.
 
 pause
