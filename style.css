@@ -459,6 +459,7 @@ body {
     font-size: 1.4rem;
     background: rgba(30, 41, 59, 0.5);
     border: 1px solid var(--border-color);
+    flex-shrink: 0;
 }
 
 .blue-glow { box-shadow: 0 0 10px rgba(96, 165, 250, 0.1); border-color: rgba(96, 165, 250, 0.2); }
@@ -473,6 +474,7 @@ body {
 .stat-info {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
 }
 
 .stat-value {
@@ -485,6 +487,66 @@ body {
     font-size: 0.75rem;
     color: var(--text-secondary);
     font-weight: 600;
+}
+
+/* Mobile Responsividade - Stats Grid */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+        min-height: auto;
+    }
+
+    .stat-icon-wrapper {
+        width: 55px;
+        height: 55px;
+        font-size: 1.6rem;
+    }
+
+    .stat-value {
+        font-size: 1.6rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .stat-card {
+        padding: 1.25rem;
+        flex-direction: row;
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .stat-icon-wrapper {
+        width: 50px;
+        height: 50px;
+        font-size: 1.4rem;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.68rem;
+    }
 }
 
 /* Info Box Banner */
