@@ -440,7 +440,8 @@ body {
 
 @media screen and (max-width: 767px) {
     .stats-grid {
-        display: block !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
         gap: 1rem !important;
         margin-bottom: 1.5rem !important;
     }
@@ -448,7 +449,6 @@ body {
     .stat-card {
         display: flex !important;
         width: 100% !important;
-        margin-bottom: 1rem !important;
         padding: 1rem !important;
         flex-direction: row !important;
         align-items: center !important;
@@ -456,6 +456,7 @@ body {
         background: var(--bg-card) !important;
         border: 1px solid var(--border-color) !important;
         border-radius: var(--radius-md) !important;
+        transition: var(--transition-smooth) !important;
     }
 
     .stat-icon-wrapper {
