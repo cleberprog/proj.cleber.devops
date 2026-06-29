@@ -448,6 +448,24 @@ body {
 
     .stat-card {
         width: 100% !important;
+        padding: 1rem !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        gap: 0.75rem !important;
+    }
+
+    .stat-icon-wrapper {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 1.3rem !important;
+    }
+
+    .stat-value {
+        font-size: 1.4rem !important;
+    }
+
+    .stat-label {
+        font-size: 0.65rem !important;
     }
 }
 
