@@ -641,7 +641,6 @@
                 </p>
 
                 <div class="cards-list">
-                    <!-- Tip 1 -->
                     <div class="detail-card">
                         <div class="card-left-accent"></div>
                         <div class="detail-card-header">
@@ -653,8 +652,7 @@
                         </div>
                         <div class="detail-card-body">
                             <p>Evite ler tabelas transacionais inteiras a cada atualização. A técnica de Carga Incremental mescla novos registros extraídos do banco de dados operacional com a base histórica persistida em arquivos QVD.</p>
-                            
-                            <!-- Special Code Block requested by user -->
+
                             <div class="code-preview mb-4">
                                 <div class="code-preview-header">
                                     <span>qlik_incremental_load.qvs</span>
@@ -673,15 +671,12 @@ Incremental_Data:
 <span class="code-keyword">STORE</span> Incremental_Data <span class="code-keyword">INTO</span> [lib://QVD_Folder/Orders.qvd] (qvd);</code></pre>
                             </div>
 
-                            <!-- Interactive Comments Section -->
                             <div class="comments-section" data-tip-id="qlik-inc-load">
                                 <button class="btn-toggle-comments">
                                     <i class="far fa-comments"></i> Comentários (<span class="comment-count">0</span>) <i class="fas fa-chevron-down toggle-arrow"></i>
                                 </button>
                                 <div class="comments-container hidden">
-                                    <div class="comments-list">
-                                        <!-- Rendered dynamically -->
-                                    </div>
+                                    <div class="comments-list"></div>
                                     <form class="comment-form">
                                         <h5>Adicionar Comentário</h5>
                                         <div class="comment-form-row">
@@ -695,7 +690,6 @@ Incremental_Data:
                         </div>
                     </div>
 
-                    <!-- Tip 2 -->
                     <div class="detail-card">
                         <div class="card-left-accent"></div>
                         <div class="detail-card-header">
@@ -707,8 +701,7 @@ Incremental_Data:
                         </div>
                         <div class="detail-card-body">
                             <p>Uma estratégia limpa para extrair apenas a versão mais recente de registros repetidos (como históricos de alteração) usando <code>ROW_NUMBER()</code> ordenado de forma decrescente pela data de modificação.</p>
-                            
-                            <!-- Special Code Block requested by user -->
+
                             <div class="code-preview mb-4">
                                 <div class="code-preview-header">
                                     <span>sql_deduplicate.sql</span>
@@ -726,15 +719,12 @@ Incremental_Data:
 <span class="code-keyword">WHERE</span> row_num = 1;</code></pre>
                             </div>
 
-                            <!-- Interactive Comments Section -->
                             <div class="comments-section" data-tip-id="sql-dedup">
                                 <button class="btn-toggle-comments">
                                     <i class="far fa-comments"></i> Comentários (<span class="comment-count">0</span>) <i class="fas fa-chevron-down toggle-arrow"></i>
                                 </button>
                                 <div class="comments-container hidden">
-                                    <div class="comments-list">
-                                        <!-- Rendered dynamically -->
-                                    </div>
+                                    <div class="comments-list"></div>
                                     <form class="comment-form">
                                         <h5>Adicionar Comentário</h5>
                                         <div class="comment-form-row">
@@ -748,6 +738,7 @@ Incremental_Data:
                         </div>
                     </div>
                 </div>
+
             </section>
 
             <!-- SECTION 7: SKILLS & TECH DETAILS -->

@@ -170,29 +170,238 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================
     // 4. Code Preview Copy Functionality
     // ==========================================
-    const copyButtons = document.querySelectorAll('.code-preview-header i');
+    document.addEventListener('click', (event) => {
+        const btn = event.target.closest('.code-preview-header i');
+        if (!btn) return;
 
-    copyButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const preElement = btn.closest('.code-preview').querySelector('pre code');
-            if (preElement) {
-                const codeText = preElement.innerText;
-                
-                navigator.clipboard.writeText(codeText).then(() => {
-                    // Visual feedback
-                    btn.className = 'fas fa-check text-neon';
-                    setTimeout(() => {
-                        btn.className = 'far fa-copy cursor-pointer hover:text-neon';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Falha ao copiar código: ', err);
-                });
-            }
+        const preElement = btn.closest('.code-preview')?.querySelector('pre code');
+        if (!preElement) return;
+
+        const codeText = preElement.innerText;
+
+        navigator.clipboard.writeText(codeText).then(() => {
+            const originalClassName = btn.className;
+            btn.className = 'fas fa-check text-neon';
+            setTimeout(() => {
+                btn.className = originalClassName;
+            }, 2000);
+        }).catch(err => {
+            console.error('Falha ao copiar código: ', err);
         });
     });
 
     // ==========================================
-    // 5. Interactive Tips & Comments Logic
+    // 5. Dynamic Tips Manager (localStorage)
+    // ==========================================
+    const tipsStorageKey = 'portfolio-tips';
+
+    function getTips() {
+        const stored = localStorage.getItem(tipsStorageKey);
+        if (!stored) {
+            return [];
+        }
+
+        try {
+            const parsed = JSON.parse(stored);
+            return Array.isArray(parsed) ? parsed : [];
+        } catch (error) {
+            console.warn('Falha ao ler dicas armazenadas.', error);
+            return [];
+        }
+    }
+
+    function saveTips(tips) {
+        localStorage.setItem(tipsStorageKey, JSON.stringify(tips));
+    }
+
+    function showTipsMessage(message) {
+        const messageEl = document.getElementById('tips-message');
+        if (!messageEl) return;
+        messageEl.textContent = message;
+        messageEl.classList.remove('hidden');
+    }
+
+    function resetTipForm() {
+        const tipIdInput = document.getElementById('tip-id-edit');
+        const tipTitleInput = document.getElementById('tip-title');
+        const tipSubtitleInput = document.getElementById('tip-subtitle');
+        const tipDescriptionInput = document.getElementById('tip-description');
+        const tipCodeTitleInput = document.getElementById('tip-code-title');
+        const tipCodeInput = document.getElementById('tip-code');
+        const formTitle = document.getElementById('tips-form-title');
+        const cancelBtn = document.getElementById('btn-cancel-edit');
+        const tipsForm = document.getElementById('tips-form');
+
+        if (tipIdInput) tipIdInput.value = '';
+        if (tipTitleInput) tipTitleInput.value = '';
+        if (tipSubtitleInput) tipSubtitleInput.value = '';
+        if (tipDescriptionInput) tipDescriptionInput.value = '';
+        if (tipCodeTitleInput) tipCodeTitleInput.value = '';
+        if (tipCodeInput) tipCodeInput.value = '';
+        if (formTitle) formTitle.textContent = 'Cadastrar nova dica';
+        if (cancelBtn) cancelBtn.classList.add('hidden');
+        if (tipsForm) tipsForm.classList.add('hidden');
+    }
+
+    function renderTips() {
+        const tipsList = document.getElementById('tips-list');
+        if (!tipsList) return;
+
+        const tips = getTips();
+
+        if (!tips.length) {
+            tipsList.innerHTML = `
+                <div class="detail-card">
+                    <div class="detail-card-body">
+                        <p style="margin: 0;">Nenhuma dica adicional salva ainda. Use o formulário acima para criar a primeira.</p>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+
+        tipsList.innerHTML = tips.map((tip) => `
+            <div class="detail-card">
+                <div class="card-left-accent"></div>
+                <div class="detail-card-header">
+                    <div class="card-icon bg-blue-glow"><i class="fas fa-lightbulb text-neon"></i></div>
+                    <div class="card-title-area">
+                        <h3>${escapeHtml(tip.title)}</h3>
+                        <p class="card-subtitle">${escapeHtml(tip.subtitle)}</p>
+                    </div>
+                </div>
+                <div class="detail-card-body">
+                    <p>${escapeHtml(tip.description)}</p>
+                    <div class="code-preview mb-4">
+                        <div class="code-preview-header">
+                            <span>${escapeHtml(tip.codeTitle)}</span>
+                            <i class="far fa-copy cursor-pointer hover:text-neon" title="Copiar código"></i>
+                        </div>
+                        <pre><code>${escapeHtml(tip.codeContent)}</code></pre>
+                    </div>
+                    <div class="comment-form-row" style="justify-content: flex-end; gap: 0.75rem; flex-wrap: wrap;">
+                        <button type="button" class="btn-toggle-comments" data-action="edit-tip" data-tip-id="${tip.id}">Editar</button>
+                        <button type="button" class="btn-submit-comment" data-action="delete-tip" data-tip-id="${tip.id}">Excluir</button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        tipsList.querySelectorAll('[data-action="edit-tip"]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const tipId = button.getAttribute('data-tip-id');
+                const tip = getTips().find((item) => item.id === tipId);
+                if (!tip) return;
+
+                const tipIdInput = document.getElementById('tip-id-edit');
+                const tipTitleInput = document.getElementById('tip-title');
+                const tipSubtitleInput = document.getElementById('tip-subtitle');
+                const tipDescriptionInput = document.getElementById('tip-description');
+                const tipCodeTitleInput = document.getElementById('tip-code-title');
+                const tipCodeInput = document.getElementById('tip-code');
+                const formTitle = document.getElementById('tips-form-title');
+                const cancelBtn = document.getElementById('btn-cancel-edit');
+                const tipsForm = document.getElementById('tips-form');
+
+                if (tipIdInput) tipIdInput.value = tip.id;
+                if (tipTitleInput) tipTitleInput.value = tip.title;
+                if (tipSubtitleInput) tipSubtitleInput.value = tip.subtitle;
+                if (tipDescriptionInput) tipDescriptionInput.value = tip.description;
+                if (tipCodeTitleInput) tipCodeTitleInput.value = tip.codeTitle;
+                if (tipCodeInput) tipCodeInput.value = tip.codeContent;
+                if (formTitle) formTitle.textContent = 'Editar dica';
+                if (cancelBtn) cancelBtn.classList.remove('hidden');
+                if (tipsForm) tipsForm.classList.remove('hidden');
+
+                tipsForm?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        tipsList.querySelectorAll('[data-action="delete-tip"]').forEach((button) => {
+            button.addEventListener('click', () => {
+                const tipId = button.getAttribute('data-tip-id');
+                const tips = getTips().filter((item) => item.id !== tipId);
+                saveTips(tips);
+                renderTips();
+                showTipsMessage('Dica removida do navegador.');
+            });
+        });
+    }
+
+    const tipsForm = document.getElementById('tips-form');
+    const resetTipsBtn = document.getElementById('btn-reset-tips');
+    const toggleTipFormBtn = document.getElementById('btn-toggle-tip-form');
+
+    if (tipsForm) {
+        tipsForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const tipIdInput = document.getElementById('tip-id-edit');
+            const title = document.getElementById('tip-title')?.value.trim();
+            const subtitle = document.getElementById('tip-subtitle')?.value.trim();
+            const description = document.getElementById('tip-description')?.value.trim();
+            const codeTitle = document.getElementById('tip-code-title')?.value.trim();
+            const codeContent = document.getElementById('tip-code')?.value.trim();
+
+            if (!title || !subtitle || !description || !codeTitle || !codeContent) {
+                showTipsMessage('Preencha todos os campos para salvar a dica.');
+                return;
+            }
+
+            const tips = getTips();
+            const newTip = {
+                id: tipIdInput?.value || `tip-${Date.now()}`,
+                title,
+                subtitle,
+                description,
+                codeTitle,
+                codeContent
+            };
+
+            const updatedTips = tipIdInput?.value
+                ? tips.map((tip) => tip.id === tipIdInput.value ? newTip : tip)
+                : [newTip, ...tips];
+
+            saveTips(updatedTips);
+            renderTips();
+            resetTipForm();
+            showTipsMessage(tipIdInput?.value ? 'Dica atualizada com sucesso.' : 'Dica salva no navegador.');
+        });
+    }
+
+    if (toggleTipFormBtn) {
+        toggleTipFormBtn.addEventListener('click', () => {
+            const tipsForm = document.getElementById('tips-form');
+            const cancelBtn = document.getElementById('btn-cancel-edit');
+            if (tipsForm) {
+                tipsForm.classList.remove('hidden');
+                document.getElementById('tip-title')?.focus();
+            }
+            if (cancelBtn) cancelBtn.classList.add('hidden');
+            document.getElementById('tip-id-edit').value = '';
+            document.getElementById('tips-form-title').textContent = 'Cadastrar nova dica';
+        });
+    }
+
+    if (resetTipsBtn) {
+        resetTipsBtn.addEventListener('click', () => {
+            if (window.confirm('Limpar as dicas salvas neste navegador?')) {
+                saveTips([]);
+                renderTips();
+                resetTipForm();
+                showTipsMessage('Lista limpa.');
+            }
+        });
+    }
+
+    if (document.getElementById('btn-cancel-edit')) {
+        document.getElementById('btn-cancel-edit').addEventListener('click', resetTipForm);
+    }
+
+    renderTips();
+
+    // ==========================================
+    // 6. Interactive Tips & Comments Logic
     // ==========================================
     const defaultComments = {
         'qlik-inc-load': [
